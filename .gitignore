@@ -1,0 +1,10 @@
+# build
+build/
+
+# editor
+.vscode
+
+# misc
+.DS_Store
+.env
+run.sh

@@ -1,0 +1,22 @@
+---@meta
+
+---@class Boat : Vehicle
+---@field SPEC_TABLE_NAME string
+---@field updateBoatWaterPlane fun(self: Boat)
+---@field onBoatWaterPlaneRaycastCallback fun(self: Boat)
+---@field onPlayerTriggerCallback fun(self: Boat)
+---@field setBoatWaterPlaneId fun(self: Boat, waterplaneId: number?)
+---@field setBoatWaterHeightAndGeofence fun(self: Boat, waterplaneHeight: number?, geofenceId: number?)
+---@field getIsBoatInWater fun(self: Boat): boolean
+---@field updateBoatControl fun(self: Boat)
+---@field onBoatStopCrossLoaded fun(self: Boat)
+---@field getBoatPropellerEffectSpeed fun(self: Boat): number
+---@field onPreLoad fun(self: Boat)
+---@field onLoadFinished fun(self: Boat)
+---@field onUpdate fun(self: Boat)
+
+---@class ModItem
+---@field id number
+---@field title string
+---@field modName string
+---@field modDir string

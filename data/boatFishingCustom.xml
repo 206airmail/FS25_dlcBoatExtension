@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="boat" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../bin/shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <!-- <name>$l10n_storeItem_sportBoat</name> -->
+        <name>Sports boat - Custom</name>
+        <functions>
+            <function>$l10n_function_sportBoat</function>
+        </functions>
+        <image>vehicles/lizard/boatFishing/store_boatFishing.png</image>
+        <price>50000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <category>cars</category>
+        <shopHeight>6</shopHeight>
+        <showInStore>true</showInStore>
+        <shopTranslationOffset>0 0 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>1010688</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>270080</indexBufferMemoryUsage>
+        <textureMemoryUsage>786432</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+        <audioMemoryUsage>269230</audioMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_boat</typeDesc>
+        <filename>vehicles/lizard/boatFishing/boatFishing.i3d</filename>
+        <sounds filename="vehicles/lizard/boatFishing/sounds/boatFishing.xml" />
+        <size width="2.3" length="8" height="3.4" lengthOffset="1.9" />
+        <components>
+            <component centerOfMass="0 0.45 0" solverIterationCount="10" mass="4000" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="BOAT" />
+        <mapHotspot type="BOAT" />
+    </base>
+
+    <lights>
+        <states>
+            <state lightTypes="0" />
+            <state lightTypes="0 1" />
+            <state lightTypes="0 1 2" />
+        </states>
+
+        <realLights>
+            <low>
+                <light node="workLightFrontLow" lightTypes="2" />
+                <light node="workLightBackLow" lightTypes="1" />
+            </low>
+            <high>
+                <light node="workLightFrontHigh" lightTypes="2" />
+                <light node="workLightBackHigh" lightTypes="1" />
+            </high>
+        </realLights>
+
+        <staticLightCompounds>
+            <staticLightCompound>
+                <node node="boatFishingLight" intensity="5" />
+                <node node="boatFishingLightGlass" intensity="1" />
+            </staticLightCompound>
+        </staticLightCompounds>
+    </lights>
+
+    <enterable isTabbable="true">
+        <enterReferenceNode node="exitPoint" />
+        <exitPoint node="exitPoint" />
+
+        <cameras>
+            <camera node="outdoorCamera" rotatable="true" rotateNode="outdoorCameraTarget" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="5.5" transMax="40" translation="0 0 8.3" rotation="-12 180 0">
+                <raycastNode node="cameraRaycastNode1" />
+                <raycastNode node="cameraRaycastNode2" />
+                <raycastNode node="cameraRaycastNode3" />
+            </camera>
+            <camera node="indoorCamera" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" useOutdoorSounds="true" positionSmoothingParameter="0" shadowFocusBox="shadowFocusBox" />
+        </cameras>
+
+        <characterNode node="playerSkin" cameraMinDistance="0.5">
+            <target ikChain="leftArm" targetNode="playerLeftHandTarget" poseId="narrowFingers" />
+            <target ikChain="rightArm" targetNode="playerRightHandTarget" poseId="narrowFingers" />
+            <target ikChain="leftFoot" targetNode="playerLeftFootTarget" />
+            <target ikChain="rightFoot" targetNode="playerRightFootTarget" />
+        </characterNode>
+
+
+        <passengerSeats>
+            <passengerSeat node="passengerSeat01" exitPoint="passengerSeat01ExitPoint" outdoorCameraIndex="1">
+                <camera node="passengerSeat01Camera" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" positionSmoothingParameter="0" shadowFocusBox="shadowFocusBox" />
+                <characterNode node="passengerSeat01PlayerSkin" cameraMinDistance="0.5">
+                    <target ikChain="leftArm" targetNode="passengerSeat01PlayerLeftHand" poseId="flatFingers" />
+                    <target ikChain="rightArm" targetNode="passengerSeat01PlayerRightHand" poseId="flatFingers" />
+                    <target ikChain="leftFoot" targetNode="passengerSeat01PlayerLeftFoot" />
+                    <target ikChain="rightFoot" targetNode="passengerSeat01PlayerRightFoot" />
+                </characterNode>
+            </passengerSeat>
+
+            <passengerSeat node="passengerSeat02" exitPoint="passengerSeat01ExitPoint" outdoorCameraIndex="1">
+                <camera node="passengerSeat02Camera" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" positionSmoothingParameter="0" shadowFocusBox="shadowFocusBox" />
+                <characterNode node="passengerSeat02PlayerSkin" cameraMinDistance="0.5">
+                    <target ikChain="leftArm" targetNode="passengerSeat02PlayerLeftHand" poseId="flatFingers" />
+                    <target ikChain="rightArm" targetNode="passengerSeat02PlayerRightHand" poseId="flatFingers" />
+                    <target ikChain="leftFoot" targetNode="passengerSeat02PlayerLeftFoot" />
+                    <target ikChain="rightFoot" targetNode="passengerSeat02PlayerRightFoot" />
+                </characterNode>
+            </passengerSeat>
+
+            <passengerSeat node="passengerSeat03" exitPoint="passengerSeat01ExitPoint" outdoorCameraIndex="1">
+                <camera node="passengerSeat03Camera" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" positionSmoothingParameter="0" shadowFocusBox="shadowFocusBox" />
+                <characterNode node="passengerSeat03PlayerSkin" cameraMinDistance="0.5">
+                    <target ikChain="leftArm" targetNode="passengerSeat03PlayerLeftHand" poseId="flatFingers" />
+                    <target ikChain="rightArm" targetNode="passengerSeat03PlayerRightHand" poseId="flatFingers" />
+                    <target ikChain="leftFoot" targetNode="passengerSeat03PlayerLeftFoot" />
+                    <target ikChain="rightFoot" targetNode="passengerSeat03PlayerRightFoot" />
+                </characterNode>
+            </passengerSeat>
+        </passengerSeats>
+    </enterable>
+
+    <drivable>
+    </drivable>
+
+    <motorized>
+        <motorConfigurations>
+            <motorConfiguration hp="500" price="0">
+                <motor torqueScale="1" minRpm="550" maxRpm="1200" maxForwardSpeed="64" maxBackwardSpeed="13" brakeForce="1.95" lowBrakeForceScale="0.1" dampingRateScale="0.1">
+                    <torque normRpm="0.45" torque="0.9" />
+                    <torque normRpm="0.5" torque="0.97" />
+                    <torque normRpm="0.59" torque="1" />
+                    <torque normRpm="0.72" torque="1" />
+                    <torque normRpm="0.86" torque="0.88" />
+                    <torque normRpm="1" torque="0.72" />
+                </motor>
+                <transmission minForwardGearRatio="10.3" maxForwardGearRatio="40" minBackwardGearRatio="16.7" maxBackwardGearRatio="320" name="$l10n_info_transmission_cvt" />
+            </motorConfiguration>
+        </motorConfigurations>
+
+        <motorStartDuration>3000</motorStartDuration>
+
+        <animationNodes>
+            <animationNode node="radar" rotAxis="2" rotSpeed="300" />
+        </animationNodes>
+
+        <dashboards>
+            <dashboard displayType="MULTI_STATE" valueType="ignitionState" node="keyIgnition" doInterpolation="true" groups="MOTOR_ACTIVE">
+                <state value="0" rotation="0 0 0" />
+                <state value="1" rotation="0 0 90" />
+                <state value="2" rotation="0 0 180" />
+            </dashboard>
+            <dashboard displayType="MULTI_STATE" valueType="ignitionState" node="keyIgnitionPart" doInterpolation="true" groups="MOTOR_ACTIVE">
+                <state value="0" rotation="0 0 0" />
+                <state value="1" rotation="0 0 -113.616" />
+                <state value="2" rotation="0 0 -186.022" />
+            </dashboard>
+            <dashboard node="needleSpeed" displayType="ROT" valueType="speed" rotAxis="3" minRot="0" maxRot="-170" minValueRot="0" maxValueRot="90" groups="MOTOR_ACTIVE" />
+            <dashboard node="rpmTemperature01" displayType="ROT" valueType="motorTemperature" rotAxis="3" minRot="0" maxRot="-190" minValueRot="0" maxValueRot="120" groups="MOTOR_ACTIVE" doInterpolation="true" />
+            <dashboard node="rpmTemperature02" displayType="ROT" valueType="motorTemperature" rotAxis="3" minRot="0" maxRot="-160" minValueRot="0" maxValueRot="120" groups="MOTOR_ACTIVE" doInterpolation="true" />
+            <dashboard node="needleBattery" displayType="ROT" valueType="battery" rotAxis="3" minRot="0" maxRot="-141" minValueRot="8" maxValueRot="24" groups="MOTOR_ACTIVE" doInterpolation="true" />
+            <dashboard node="effectsAlignNode01RefFrame" displayType="TRANS" valueType="speed" minTrans="0 0 -1.315" maxTrans="0 0.2 -2.5" minValueTrans="5" maxValueTrans="25" />
+        </dashboards>
+    </motorized>
+
+    <boat>
+        <control maxSteeringAngle="60" maxAccelerationSpeed="1.5" steeringForce="8" steeringForceAngle="10" accelerationForceAngle="2">
+            <waterDepthNodeFront node="waterDepthNodeFront01" />
+            <waterDepthNodeFront node="waterDepthNodeFront02" />
+            <waterDepthNodeBack node="waterDepthNodeBack01" />
+            <waterDepthNodeBack node="waterDepthNodeBack02" />
+            <waterDepthNodeBody node="waterDepthNodeBody01" />
+            <waterDepthNodeBody node="waterDepthNodeBody02" />
+            <waterDepthNodeBody node="waterDepthNodeBody03" />
+
+            <forceNode node="propellerForceNodeLeft" />
+            <forceNode node="propellerForceNodeRight" />
+
+            <accelerationForce reverseFactor="0.8" steeringFactor="0.75">
+                <key speed="0" force="12" />
+                <key speed="20" force="18" />
+                <key speed="30" force="28" />
+                <key speed="45" force="36" />
+            </accelerationForce>
+        </control>
+
+        <stopCross spacing="20" numCrosses="3" size="2.5" yOffset="2" />
+
+        <condition dirt="0.4" scratches="0" dirtColor="0.08 0.07 0.05" />
+
+        <joint jointPosition="0 0.5 0" waterDepth="0.3" minRotLimit="0 0 0" maxRotLimit="0 0 0" minTransLimit="0 0 0" maxTransLimit="0 0.000001 0" rotLimitSpring="35 0 5" rotLimitDamping="15 0 2.5" transLimitSpring="0 200 0" transLimitDamping="0 50 0" rotationDrag="0 75 0" translationDrag="25 0 0.5" />
+
+        <shallowWaterNodes>
+            <shallowWaterNode node="propellerShallowWaterNode01" radius="1" />
+            <shallowWaterNode node="propellerShallowWaterNode02" radius="1" />
+        </shallowWaterNodes>
+        <propellerNodes>
+            <propellerNode node="propeller01" rotSpeed="4000" />
+            <propellerNode node="propeller02" rotSpeed="4000" />
+        </propellerNodes>
+        <rudderNodes>
+            <rudderNode node="rudderLeft" maxRotation="35" />
+            <rudderNode node="rudderRight" maxRotation="35" />
+        </rudderNodes>
+
+        <playerTrigger node="playerTrigger" />
+
+        <propellerEffects>
+            <effectNode effectClass="VariableMotionPathEffect" effectType="WATER" meshType="REFRACTION" linkNode="engineLeftEffectNode">
+                <motionPathEffect textureFilename="vehicles/lizard/boatFishing/engineArray.dds" numRows="256" rowLength="1" minFade="0" densityScale="1" scrollLength="100000" speedScale="2.2" speedFunc="getBoatPropellerEffectSpeed" />
+                <linkNode node="engineRightEffectNode" />
+
+                <variableState referenceUseVehicleSpeed="true">
+                    <state referenceValue="0" scale="1 0.5 1" density="0.7" speedScale="2.2" />
+                    <state referenceValue="30" scale="1 1 2" density="1.0" speedScale="1.1" />
+                </variableState>
+            </effectNode>
+            <effectNode effectClass="VariableMotionPathEffect" effectType="WATER" meshType="WHITEWATER" linkNode="engineLeftEffectNode">
+                <motionPathEffect textureFilename="vehicles/lizard/boatFishing/engineArray.dds" numRows="256" rowLength="1" minFade="0" densityScale="1" scrollLength="100000" speedScale="2.2" speedFunc="getBoatPropellerEffectSpeed" />
+                <linkNode node="engineRightEffectNode" />
+
+                <variableState referenceUseVehicleSpeed="true">
+                    <state referenceValue="0" scale="1 0.5 1" density="0.7" speedScale="2.2" />
+                    <state referenceValue="30" scale="1 1 2" density="1.0" speedScale="1.1" />
+                </variableState>
+            </effectNode>
+        </propellerEffects>
+
+        <waterEffects minSpeed="1">
+            <effectNode effectClass="VariableMotionPathEffect" effectType="WATER" meshType="REFRACTION" linkNode="waterEffectLeftNode">
+                <motionPathEffect textureFilename="vehicles/lizard/boatFishing/leftArray.dds" numRows="512" rowLength="1" minFade="0" densityScale="1" scrollLength="100000" speedScale="1.6" />
+
+                <variableState referenceUseVehicleSpeed="true">
+                    <state referenceValue="6" density="0" />
+                    <state referenceValue="8" density="1.0" />
+                    <state referenceValue="30" density="1.0" />
+
+                    <state referenceValue="5" speedScale="0.55" />
+                    <state referenceValue="30" speedScale="1.6" />
+
+                    <state referenceValue="0" scale="1 0.5 1" />
+                    <state referenceValue="30" scale="1 1 1" />
+                </variableState>
+            </effectNode>
+            <effectNode effectClass="VariableMotionPathEffect" effectType="WATER" meshType="WHITEWATER" linkNode="waterEffectLeftNode">
+                <motionPathEffect textureFilename="vehicles/lizard/boatFishing/leftArray.dds" numRows="512" rowLength="1" minFade="0" densityScale="1" scrollLength="100000" speedScale="1.6" />
+
+                <variableState referenceUseVehicleSpeed="true">
+                    <state referenceValue="14" density="0" />
+                    <state referenceValue="16" density="0.15" />
+                    <state referenceValue="30" density="1.0" />
+
+                    <state referenceValue="5" speedScale="0.55" />
+                    <state referenceValue="30" speedScale="1.6" />
+
+                    <state referenceValue="0" scale="1 0.5 1" />
+                    <state referenceValue="30" scale="1 1 1" />
+                </variableState>
+            </effectNode>
+
+            <effectNode effectClass="VariableMotionPathEffect" effectType="WATER" meshType="REFRACTION" linkNode="waterEffectRightNode">
+                <motionPathEffect textureFilename="vehicles/lizard/boatFishing/rightArray.dds" numRows="512" rowLength="1" minFade="0" densityScale="1" scrollLength="100000" speedScale="1.6" />
+
+                <variableState referenceUseVehicleSpeed="true">
+                    <state referenceValue="6" density="0" />
+                    <state referenceValue="8" density="1.0" />
+                    <state referenceValue="30" density="1.0" />
+
+                    <state referenceValue="5" speedScale="0.55" />
+                    <state referenceValue="30" speedScale="1.6" />
+
+                    <state referenceValue="0" scale="1 0.5 1" />
+                    <state referenceValue="30" scale="1 1 1" />
+                </variableState>
+            </effectNode>
+            <effectNode effectClass="VariableMotionPathEffect" effectType="WATER" meshType="WHITEWATER" linkNode="waterEffectRightNode">
+                <motionPathEffect textureFilename="vehicles/lizard/boatFishing/rightArray.dds" numRows="512" rowLength="1" minFade="0" densityScale="1" scrollLength="100000" speedScale="1.6" />
+
+                <variableState referenceUseVehicleSpeed="true">
+                    <state referenceValue="14" density="0" />
+                    <state referenceValue="16" density="0.15" />
+                    <state referenceValue="30" density="1.0" />
+
+                    <state referenceValue="5" speedScale="0.55" />
+                    <state referenceValue="30" speedScale="1.6" />
+
+                    <state referenceValue="0" scale="1 0.5 1" />
+                    <state referenceValue="30" scale="1 1 1" />
+                </variableState>
+            </effectNode>
+
+            <effectNode effectClass="VariableMotionPathEffect" effectType="WATER" meshType="REFRACTION" linkNode="waterEffectFrontNode">
+                <motionPathEffect textureFilename="vehicles/lizard/boatFishing/frontArray.dds" numRows="512" rowLength="1" minFade="0" densityScale="1" scrollLength="100000" speedScale="2.2" />
+
+                <variableState referenceUseVehicleSpeed="true">
+                    <state referenceValue="6" density="0" />
+                    <state referenceValue="8" density="1.0" />
+                    <state referenceValue="30" density="1.0" />
+
+                    <state referenceValue="5" speedScale="0.7" />
+                    <state referenceValue="30" speedScale="2.2" />
+
+                    <state referenceValue="0" scale="1 0.5 1" />
+                    <state referenceValue="30" scale="1 1 1" />
+                </variableState>
+            </effectNode>
+            <effectNode effectClass="VariableMotionPathEffect" effectType="WATER" meshType="WHITEWATER" linkNode="waterEffectFrontNode">
+                <motionPathEffect textureFilename="vehicles/lizard/boatFishing/frontArray.dds" numRows="512" rowLength="1" minFade="0" densityScale="1" scrollLength="100000" speedScale="2.2" />
+
+                <variableState referenceUseVehicleSpeed="true">
+                    <state referenceValue="14" density="0" />
+                    <state referenceValue="16" density="0.15" />
+                    <state referenceValue="30" density="1.0" />
+
+                    <state referenceValue="5" speedScale="0.7" />
+                    <state referenceValue="30" speedScale="2.2" />
+
+                    <state referenceValue="0" scale="1 0.5 1" />
+                    <state referenceValue="30" scale="1 1 1" />
+                </variableState>
+            </effectNode>
+        </waterEffects>
+
+        <dashboards>
+            <dashboard displayType="ROT" valueType="acceleration" node="leverGas" minRot="-33 0 0" maxRot="33 0 0" doInterpolation="true" groups="MOTOR_ACTIVE" />
+            <dashboard displayType="ROT" valueType="steeringAngle" node="steeringWheel" minRot="0 30 0" maxRot="0 -30 0" doInterpolation="true" groups="MOTOR_ACTIVE" />
+        </dashboards>
+    </boat>
+
+    <cylindered>
+        <movingParts>
+            <movingPart node="effectsAlignNode01" referenceFrame="effectsAlignNode01RefFrame" alignToWorldY="true" isActiveDirty="true" maxUpdateDistance="50" />
+            <movingPart node="engineLeftEffectNodeAlign" referenceFrame="engineLeftEffectNodeAlignRefFrame" alignToWorldY="true" isActiveDirty="true" maxUpdateDistance="50" />
+            <movingPart node="engineRightEffectNodeAlign" referenceFrame="engineRightEffectNodeAlignRefFrame" alignToWorldY="true" isActiveDirty="true" maxUpdateDistance="50" />
+        </movingParts>
+    </cylindered>
+
+    <shallowWaterObstacle>
+        <obstacleNode node="boatFishing_main_component1" size="2 3 3" offset="0 1 0.2" />
+        <obstacleNode node="boatFishing_main_component1" size="1 3 1.25" offset="0 1 2.325" />
+        <obstacleNode node="boatFishing_main_component1" size="0.5 3 1.5" offset="0 1 3.7" />
+    </shallowWaterObstacle>
+
+    <suspensions>
+        <suspension useCharacterTorso="true" weight="90" minRotation="0 -5 -5" maxRotation="0 5 5" suspensionParametersY="7 1" suspensionParametersZ="7 1" />
+    </suspensions>
+
+    <dashboard>
+        <groups>
+            <group name="MOTOR_STARTING" electronicsStarting="true" />
+            <group name="MOTOR_ACTIVE" electronicsStarting="true" electronicsRunning="true" />
+        </groups>
+
+        <default>
+            <dashboard displayType="VISIBILITY" node="display_decals" groups="MOTOR_ACTIVE" />
+            <dashboard displayType="EMITTER" node="display_decals" intensity="0.2" groups="MOTOR_ACTIVE" />
+        </default>
+    </dashboard>
+
+    <ai>
+    </ai>
+
+    <i3dMappings>
+        <i3dMapping id="boatFishing_main_component1" node="0>" />
+        <i3dMapping id="exitPoint" node="0>0|0" />
+        <i3dMapping id="outdoorCameraTarget" node="0>0|1|0" />
+        <i3dMapping id="outdoorCamera" node="0>0|1|0|0" />
+        <i3dMapping id="indoorCamera" node="0>0|1|1" />
+        <i3dMapping id="cameraRaycastNode1" node="0>0|1|2" />
+        <i3dMapping id="cameraRaycastNode2" node="0>0|1|3" />
+        <i3dMapping id="cameraRaycastNode3" node="0>0|1|4" />
+        <i3dMapping id="shadowFocusBox" node="0>0|1|5" />
+        <i3dMapping id="boatFishingLight" node="0>0|2|0|0" />
+        <i3dMapping id="boatFishingLightGlass" node="0>0|2|0|1" />
+        <i3dMapping id="workLightFrontLow" node="0>0|2|1|0" />
+        <i3dMapping id="workLightFrontHigh" node="0>0|2|1|1" />
+        <i3dMapping id="workLightBackLow" node="0>0|2|1|2" />
+        <i3dMapping id="workLightBackHigh" node="0>0|2|1|3" />
+        <i3dMapping id="exactFillRootNodeFuel" node="0>0|3" />
+        <i3dMapping id="propellerForceNodeLeft" node="0>0|4|0" />
+        <i3dMapping id="propellerForceNodeRight" node="0>0|4|1" />
+        <i3dMapping id="propellerShallowWaterNode01" node="0>0|4|2" />
+        <i3dMapping id="propellerShallowWaterNode02" node="0>0|4|3" />
+        <i3dMapping id="waterDepthNodeFront01" node="0>0|4|4" />
+        <i3dMapping id="waterDepthNodeFront02" node="0>0|4|5" />
+        <i3dMapping id="waterDepthNodeBack01" node="0>0|4|6" />
+        <i3dMapping id="waterDepthNodeBack02" node="0>0|4|7" />
+        <i3dMapping id="waterDepthNodeBody01" node="0>0|4|8" />
+        <i3dMapping id="waterDepthNodeBody02" node="0>0|4|9" />
+        <i3dMapping id="waterDepthNodeBody03" node="0>0|4|10" />
+        <i3dMapping id="playerTrigger" node="0>0|4|11" />
+        <i3dMapping id="passengerSeat01ExitPoint" node="0>0|5|0" />
+        <i3dMapping id="passengerSeat01" node="0>0|5|1" />
+        <i3dMapping id="passengerSeat01Camera" node="0>0|5|1|0" />
+        <i3dMapping id="passengerSeat01PlayerSkin" node="0>0|5|1|1" />
+        <i3dMapping id="passengerSeat01PlayerLeftHand" node="0>0|5|1|2" />
+        <i3dMapping id="passengerSeat01PlayerRightHand" node="0>0|5|1|3" />
+        <i3dMapping id="passengerSeat01PlayerLeftFoot" node="0>0|5|1|4" />
+        <i3dMapping id="passengerSeat01PlayerRightFoot" node="0>0|5|1|5" />
+        <i3dMapping id="passengerSeat02" node="0>0|5|2" />
+        <i3dMapping id="passengerSeat02Camera" node="0>0|5|2|0" />
+        <i3dMapping id="passengerSeat02PlayerSkin" node="0>0|5|2|1" />
+        <i3dMapping id="passengerSeat02PlayerLeftHand" node="0>0|5|2|2" />
+        <i3dMapping id="passengerSeat02PlayerRightHand" node="0>0|5|2|3" />
+        <i3dMapping id="passengerSeat02PlayerLeftFoot" node="0>0|5|2|4" />
+        <i3dMapping id="passengerSeat02PlayerRightFoot" node="0>0|5|2|5" />
+        <i3dMapping id="passengerSeat03" node="0>0|5|3" />
+        <i3dMapping id="passengerSeat03Camera" node="0>0|5|3|0" />
+        <i3dMapping id="passengerSeat03PlayerSkin" node="0>0|5|3|1" />
+        <i3dMapping id="passengerSeat03PlayerLeftHand" node="0>0|5|3|2" />
+        <i3dMapping id="passengerSeat03PlayerRightHand" node="0>0|5|3|3" />
+        <i3dMapping id="passengerSeat03PlayerLeftFoot" node="0>0|5|3|4" />
+        <i3dMapping id="passengerSeat03PlayerRightFoot" node="0>0|5|3|5" />
+        <i3dMapping id="playerSkin" node="0>0|6|0" />
+        <i3dMapping id="playerRightFootTarget" node="0>0|6|1" />
+        <i3dMapping id="playerLeftFootTarget" node="0>0|6|2" />
+        <i3dMapping id="display_decals" node="0>0|7|0" />
+        <i3dMapping id="needleSpeed" node="0>0|7|1|0" />
+        <i3dMapping id="rpmTemperature01" node="0>0|7|2|0" />
+        <i3dMapping id="rpmTemperature02" node="0>0|7|3|0" />
+        <i3dMapping id="needleBattery" node="0>0|7|4|0" />
+        <i3dMapping id="needleFuel" node="0>0|7|5|0" />
+        <i3dMapping id="keyIgnition" node="0>0|7|6" />
+        <i3dMapping id="keyIgnitionPart" node="0>0|7|6|0" />
+        <i3dMapping id="rudderLeft" node="0>0|7|7" />
+        <i3dMapping id="propeller01" node="0>0|7|7|0" />
+        <i3dMapping id="engineLeftEffectNodeAlignRefFrame" node="0>0|7|7|1" />
+        <i3dMapping id="engineLeftEffectNodeAlign" node="0>0|7|7|1|0" />
+        <i3dMapping id="engineLeftEffectNode" node="0>0|7|7|1|0|0" />
+        <i3dMapping id="rudderRight" node="0>0|7|8" />
+        <i3dMapping id="propeller02" node="0>0|7|8|0" />
+        <i3dMapping id="engineRightEffectNodeAlignRefFrame" node="0>0|7|8|1" />
+        <i3dMapping id="engineRightEffectNodeAlign" node="0>0|7|8|1|0" />
+        <i3dMapping id="engineRightEffectNode" node="0>0|7|8|1|0|0" />
+        <i3dMapping id="leverGas" node="0>0|7|9" />
+        <i3dMapping id="playerRightHandTarget" node="0>0|7|9|1" />
+        <i3dMapping id="steeringWheel" node="0>0|7|10|0" />
+        <i3dMapping id="playerLeftHandTarget" node="0>0|7|10|0|1" />
+        <i3dMapping id="effectsAlignNode01RefFrame" node="0>0|8" />
+        <i3dMapping id="effectsAlignNode01" node="0>0|8|0" />
+        <i3dMapping id="waterEffectFrontNode" node="0>0|8|0|0" />
+        <i3dMapping id="waterEffectLeftNode" node="0>0|8|0|1" />
+        <i3dMapping id="waterEffectRightNode" node="0>0|8|0|2" />
+        <i3dMapping id="radar" node="0>0|10" />
+    </i3dMappings>
+</vehicle>
