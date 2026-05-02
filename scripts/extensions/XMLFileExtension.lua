@@ -35,11 +35,7 @@ local function inj_XMLFile_loadIfExists(objectName, superFunc, filename, schema)
         end
     end
 
-    if filename == nil or not fileExists(filename) then
-        return nil
-    end
-
-    return XMLFile.load(objectName, filename, schema)
+    return superFunc(objectName, filename, schema)
 end
 
 XMLFile.loadIfExists = Utils.overwrittenFunction(XMLFile.loadIfExists, inj_XMLFile_loadIfExists)
