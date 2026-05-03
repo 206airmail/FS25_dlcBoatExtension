@@ -10,7 +10,7 @@ local Boat = dlcEnv.Boat
 ---@class AttachableBoatExtension_spec
 ---@field disableJointAttach boolean
 
----@class AttachableBoatExtension : Vehicle, Boat, Attachable
+---@class AttachableBoatExtension : Vehicle, Boat, Attachable, Enterable
 AttachableBoatExtension = {}
 AttachableBoatExtension.SPEC_NAME = 'spec_' .. g_currentModName .. '.attachableBoatExtension'
 
@@ -28,6 +28,7 @@ end
 function AttachableBoatExtension.registerOverwrittenFunctions(vehicleType)
     SpecializationUtil.registerOverwrittenFunction(vehicleType, 'updateBoatWaterPlane', AttachableBoatExtension.updateBoatWaterPlane)
     SpecializationUtil.registerOverwrittenFunction(vehicleType, 'onBoatWaterPlaneRaycastCallback', AttachableBoatExtension.onBoatWaterPlaneRaycastCallback)
+    SpecializationUtil.registerOverwrittenFunction(vehicleType, 'getIsActiveForInput', AttachableBoatExtension.getIsActiveForInput)
 end
 
 function AttachableBoatExtension:onLoad()
@@ -94,4 +95,15 @@ function AttachableBoatExtension:onBoatWaterPlaneRaycastCallback(superFunc, ...)
 
         return true
     end
+end
+
+function AttachableBoatExtension:getIsActiveForInput(superFunc, ignoreSelection, activeForAI)
+    ---@type AttachableBoatExtension_spec
+    local spec = self[AttachableBoatExtension.SPEC_NAME]
+
+    if spec.disableJointAttach and self.spec_enterable.isEntered then
+        return true
+    end
+
+    return superFunc(self, ignoreSelection, activeForAI)
 end
