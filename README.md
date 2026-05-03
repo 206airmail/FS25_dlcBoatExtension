@@ -67,6 +67,12 @@ In order to have a specific reset spawn place for boats on a map, there must be 
 
 It will use the first valid placeable spawn place found, if not it will use the regular vehicle spawn place(s)
 
+### Console commands
+
+Toggle boat vehicle debug rendering useful for modding/inspecting various parameters
+
+```gsBoatDebug```
+
 ## Screenshots
 
 ![Shop](./docs/images/boat_shop.webp)
