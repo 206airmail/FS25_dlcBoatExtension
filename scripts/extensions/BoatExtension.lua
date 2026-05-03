@@ -16,13 +16,6 @@
       Make sure that Boats work on other maps, prevent specialization setting custom position compression parameters.
 ]]
 
----@class Boat_spec
----@field waterEffectsMinSpeed number?
----@field pendingWaterRaycast boolean
----@field waterPlaneId number?
----@field waterSamples? table
----@field waterSamplesArePlaying boolean
-
 local dlcEnv = _G['pdlc_highlandsFishingPack']
 ---@type Boat
 local Boat = dlcEnv.Boat

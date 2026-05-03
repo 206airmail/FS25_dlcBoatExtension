@@ -153,6 +153,8 @@ if g_modIsLoaded[dlcName] then
     g_modController = ModController.new()
     g_modController:addMissingDlcStoreItems()
     g_modController:addCustomDlcStoreItems()
+
+    source(g_currentModDirectory .. 'scripts/BoatDebug.lua')
 else
     Logging.info('DLC "%s" is not loaded', dlcName)
 end
