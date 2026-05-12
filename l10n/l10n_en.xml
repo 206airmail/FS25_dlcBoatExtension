@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<l10n>
+    <texts>
+        <text name="input_BCE_CONTROL_GROUP_NEXT" text="Next control mode" />
+        <text name="input_BCE_CONTROL_GROUP_PREV" text="Previous control mode" />
+        <text name="input_BCE_CONTROL_GROUP_RESET" text="Reset control mode" />
+
+        <text name="ui_primaryDrive" text="Primary Drive" />
+        <text name="ui_activeControlGroup" text="Boat control mode" />
+    </texts>
+</l10n>

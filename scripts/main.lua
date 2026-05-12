@@ -17,6 +17,7 @@ if g_modIsLoaded[dlcName] then
     source(g_currentModDirectory .. 'scripts/extensions/XMLFileExtension.lua')
 
     g_specializationManager:addSpecialization('attachableBoatExtension', 'AttachableBoatExtension', g_currentModDirectory .. 'scripts/specializations/AttachableBoatExtension.lua', g_currentModName)
+    g_specializationManager:addSpecialization('boatControlExtension', 'BoatControlExtension', g_currentModDirectory .. 'scripts/specializations/BoatControlExtension.lua', g_currentModName)
     g_specializationManager:addSpecialization('boatFillUnitExtension', 'BoatFillUnitExtension', g_currentModDirectory .. 'scripts/specializations/BoatFillUnitExtension.lua', g_currentModName)
 
     g_modController:addMissingDlcStoreItems()

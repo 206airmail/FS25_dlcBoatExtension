@@ -13,10 +13,31 @@
     </description>
 
     <iconFilename>icon_dlcBoatExtension.dds</iconFilename>
-
+    <l10n filenamePrefix="l10n/l10n" />
     <multiplayer supported="true" />
 
     <extraSourceFiles>
         <sourceFile filename="scripts/main.lua" />
     </extraSourceFiles>
+
+    <actions>
+        <action name="BCE_CONTROL_GROUP_NEXT" />
+        <action name="BCE_CONTROL_GROUP_PREV" />
+        <action name="BCE_CONTROL_GROUP_RESET" />
+    </actions>
+
+    <inputBinding>
+        <actionBinding action="BCE_CONTROL_GROUP_NEXT">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_i" index="1" />
+            <binding device="0_XINPUT_GAMEPAD" input="BUTTON_5 BUTTON_18" index="1" />
+        </actionBinding>
+        <actionBinding action="BCE_CONTROL_GROUP_PREV">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_u" index="1" />
+            <binding device="0_XINPUT_GAMEPAD" input="BUTTON_5 BUTTON_20" index="1" />
+        </actionBinding>
+        <actionBinding action="BCE_CONTROL_GROUP_RESET">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_o" index="1" />
+            <binding device="0_XINPUT_GAMEPAD" input="BUTTON_5 BUTTON_4" index="1" />
+        </actionBinding>
+    </inputBinding>
 </modDesc>

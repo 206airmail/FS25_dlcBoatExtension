@@ -18,3 +18,35 @@ function ModUtils.formatMass(mass)
 
     return str .. ' kg'
 end
+
+---@param x number
+---@param y number
+---@return number x
+---@return number y
+function ModUtils.getHUDNormalizedValues(x, y)
+    return ModUtils.getHUDNormalizedXValue(x), ModUtils.getHUDNormalizedYValue(y)
+end
+
+---@param number number
+---@return number
+function ModUtils.getHUDNormalizedXValue(number)
+    local screenSizeValue = g_referenceScreenWidth
+    local scalingValue = g_aspectScaleX
+    local uiScale = g_gameSettings:getValue(GameSettings.SETTING.UI_SCALE)
+
+    local value = number / screenSizeValue * scalingValue * uiScale
+
+    return value
+end
+
+---@param number number
+---@return number
+function ModUtils.getHUDNormalizedYValue(number)
+    local screenSizeValue = g_referenceScreenHeight
+    local scalingValue = g_aspectScaleY
+    local uiScale = g_gameSettings:getValue(GameSettings.SETTING.UI_SCALE)
+
+    local value = number / screenSizeValue * scalingValue * uiScale
+
+    return value
+end
