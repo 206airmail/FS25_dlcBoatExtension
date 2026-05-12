@@ -36,20 +36,67 @@
 ---@field waterSamplesArePlaying boolean
 ---@field jointIndex? number
 ---@field joint BoatJoint
----@field propellerForceNodes ForceNode[]
----@field accelerationForceCurve? AnimCurve
 ---@field motorAcceleration number -- [-1, ..., 1]
----@field steeringAccelerationFactor number
----@field reverseAccelerationFactor number
 ---@field steeringInput number
+---@field maxSteeringAngle number
+---@field maxAccelerationSpeed number
+---@field steeringForce number
+---@field steeringForceAngle number
+---@field accelerationForceAngle number
+---@field reverseAccelerationFactor number
+---@field steeringAccelerationFactor number
+---@field accelerationForceCurve AnimCurve
+---@field propellerNodes PropellerNode[]
+---@field rudderNodes RudderNode[]
+---@field propellerForceNodes PropellerForceNode
+---@field propellerEffects Effect[]
+---@field shallowWaterNodes ShallowWaterNode[]
+---@field propellerEffectsActive boolean
+
+---@class RudderNode
+---@field node number
+---@field maxRotation number
+
+---@class PropellerNode
+---@field node number
+---@field rotSpeed number
+---@field curRot number
+
+---@class PropellerForceNode
+---@field node number
+---@field lastSpeedReal number
+
+---@class ShallowWaterNode
+---@field node number
+---@field radius number
+
+---@class ControlGroup
+---@field name string
+---@field icon string
+---@field maxSteeringAngle number
+---@field maxAccelerationSpeed number
+---@field steeringForce number
+---@field steeringForceAngle number
+---@field accelerationForceAngle number
+---@field reverseAccelerationFactor number
+---@field steeringAccelerationFactor number
+---@field accelerationForceCurve AnimCurve
+---@field propellerNodes PropellerNode[]
+---@field propellerForceNodes PropellerForceNode[]
+---@field propellerEffects Effect[]
+---@field shallowWaterNodes ShallowWaterNode[]
+---@field rudderNodes RudderNode[]
+---@field changeObjects table[]
+---
+---@field propellerNodesIndex? number
+---@field propellerForceNodesIndex? number
+---@field propellerEffectsIndex? number
+---@field shallowWaterNodesIndex? number
+---@field rudderNodesIndex? number
 
 ---@class BoatJoint
 ---@field waterDepth number
 ---@field jointPosition number[] -- [x, y, z] offset from component[1] node
-
----@class ForceNode
----@field node number
----@field lastSpeedReal number
 
 ---@class ModItem
 ---@field id number
@@ -62,6 +109,20 @@
 ---@field directionNode number
 ---@field size number[] -- [x, y, z]
 ---@field offset number[] -- [x, y, z]
+---@field vehicle Boat
+---@field lastWorldPosition number[] -- [x, y, z]
+---@field shallowWaterObstacle? Obstacle
+---@field ignoreDirectionZ boolean
+
+---@class Obstacle
+---@field node number
+---@field sizeX number
+---@field sizeZ number
+---@field sizeY number
+---@field rotY number
+---@field offset number[] -- [x, y, z]
+---@field getXZVelocityAndRotYFunc function
+---@field getXZVelocityAndRotYFuncTarget table
 
 ---@class ShallowWaterObstacles_spec
 ---@field obstacleNodes ObstacleNode[]
