@@ -162,7 +162,7 @@
     </motorized>
 
     <boat>
-        <control maxSteeringAngle="60" maxAccelerationSpeed="1.5" steeringForce="8" steeringForceAngle="10" accelerationForceAngle="2">
+        <control maxAccelerationSpeed="1.5" steeringForce="8" steeringForceAngle="10" accelerationForceAngle="2">
             <waterDepthNodeFront node="waterDepthNodeFront01" />
             <waterDepthNodeFront node="waterDepthNodeFront02" />
             <waterDepthNodeBack node="waterDepthNodeBack01" />
